@@ -6,8 +6,13 @@ export default class ItemAddForm extends Component {
         label: ''
     }
     onLabelChange = (e) => {
+        function ucFirst(str) {
+            if (!str) return str;
+            return str[0].toUpperCase() + str.slice(1);
+        }
+        const value = ucFirst(e.target.value);
         this.setState({
-            label: e.target.value
+            label: value
         });
     };
     onSubmit = (e) => {
